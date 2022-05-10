@@ -1,2 +1,2 @@
-# Bootcamp-3T2021-SHS-team-alpha
+# Bootcamp-3T2021-SHS-WordCraft
 Team Alpha

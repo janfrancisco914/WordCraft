@@ -13,11 +13,11 @@ lightGray = (120, 120, 120)
 # Window
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("WordCraft")
-icon = pygame.image.load("../Assets/W Logo.png")
+icon = pygame.image.load("../WordCraft/Assets/W Logo.png")
 pygame.display.set_icon(icon)
 
-hint = pygame.image.load('../Assets/Hint Icon.png')
-reshuffle = pygame.image.load('../Assets/Reshuffle Icon.png')
+hint = pygame.image.load('../WordCraft/Assets/Hint Icon.png')
+reshuffle = pygame.image.load('../WordCraft/Assets/Reshuffle Icon.png')
 
 # Text display function
 def textDisplay(msg, color, x, y, size):

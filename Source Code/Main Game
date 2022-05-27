@@ -1,0 +1,40 @@
+from tkinter import *
+
+root = Tk()
+root.title('WordCraft')
+root.geometry('1300x690')
+
+# Just fillers
+filler1 = Label(root, text=" ")
+filler2 = Label(root, text=" ", height=4)
+filler3 = Label(root, text=" ")
+filler4 = Label(root, text=" ")
+filler5 = Label(root, text=" ")
+
+# Assets
+hintImage = PhotoImage(file='WordCraft/Assets/Hint Icon.png')
+reshuffleImage = PhotoImage(file='WordCraft/Assets/Reshuffle Icon.png')
+
+# Content
+level = Label(          root, text="Level 1",                                           font=("", 35),  height=4)
+hintButton = Button(    root, image=hintImage,                                          borderwidth=0,  height=150)
+reshuffle = Button(     root, image=reshuffleImage,                                     borderwidth=0,  height=150)
+toLevels = Button(      root, text="To levels",                                         font=("", 18),              width=15)
+howToPlay = Button(     root, text="How to play",                                       font=("", 18),              width=15)
+question = Label(       root, text="An ability to understand another person's feeling", font=("", 25))
+
+#========================== Screen locations ==========================#
+
+filler1.grid(   row=0, column=0,    padx=50)
+filler2.grid(   row=0, column=1,                            columnspan=2)
+level.grid(     row=1, column=1,                            columnspan=2)
+hintButton.grid(row=2, column=1)
+reshuffle.grid( row=2, column=2)
+toLevels.grid(  row=3, column=1,                pady=25,    columnspan=2)
+howToPlay.grid( row=4, column=1,                            columnspan=2)
+filler3.grid(   row=0, column=3,    padx=50)
+filler4.grid(   row=0, column=4,    padx=25)
+question.grid(  row=0, column=5,                            columnspan=7, rowspan=2)
+filler5.grid(   row=0, column=12,   padx=25)
+
+root.mainloop()

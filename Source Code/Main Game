@@ -11,6 +11,9 @@ def click(letter):
     e1.delete(0, END)
     e1.insert(0, (current + letter))
 
+def caps(event):
+    v.set(v.get().upper())
+
 # Just fillers
 filler1 = Label(root, text=" ")
 filler2 = Label(root, text=" ", height=4)
@@ -30,7 +33,9 @@ toLevels = Button(      root, text="To levels",                                 
 howToPlay = Button(     root, text="How to play",                                       font=("", 18),              width=15)
 question = Label(       root, text="An ability to understand another person's feeling", font=("", 25))
 
-e1 = Entry(root, width=30, borderwidth=5)
+v = StringVar()
+e1 = Entry(root, width=30, borderwidth=5, font=("", 25), justify=CENTER, textvariable=v)
+e1.bind("<KeyRelease>", caps)
 
 e = Button(root, text="E", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click("E"))
 m = Button(root, text="M", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click("M"))

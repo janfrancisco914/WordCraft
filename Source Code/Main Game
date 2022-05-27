@@ -4,6 +4,29 @@ root = Tk()
 root.title('WordCraft')
 root.geometry('1300x690')
 
+# Functions
+def firstLetter():
+    label = Label(root, text="E", font=50)
+    label.grid(row=2, column=5)
+def secondLetter():
+    label = Label(root, text="M", font=50)
+    label.grid(row=2, column=6)
+def thirdLetter():
+    label = Label(root, text="P", font=50)
+    label.grid(row=2, column=7)
+def fourthLetter():
+    label = Label(root, text="A", font=50)
+    label.grid(row=2, column=8)
+def fifthLetter():
+    label = Label(root, text="T", font=50)
+    label.grid(row=2, column=9)
+def sixthLetter():
+    label = Label(root, text="H", font=50)
+    label.grid(row=2, column=10)
+def seventhLetter():
+    label = Label(root, text="Y", font=50)
+    label.grid(row=2, column=11)
+
 # Just fillers
 filler1 = Label(root, text=" ")
 filler2 = Label(root, text=" ", height=4)
@@ -23,7 +46,15 @@ toLevels = Button(      root, text="To levels",                                 
 howToPlay = Button(     root, text="How to play",                                       font=("", 18),              width=15)
 question = Label(       root, text="An ability to understand another person's feeling", font=("", 25))
 
-#========================== Screen locations ==========================#
+e = Button(root, text="E", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=firstLetter)
+m = Button(root, text="M", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=secondLetter)
+p = Button(root, text="P", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=thirdLetter)
+a = Button(root, text="A", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=fourthLetter)
+t = Button(root, text="T", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=fifthLetter)
+h = Button(root, text="H", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=sixthLetter)
+y = Button(root, text="Y", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=seventhLetter)
+
+#========================== Screen location ==========================#
 
 filler1.grid(   row=0, column=0,    padx=50)
 filler2.grid(   row=0, column=1,                            columnspan=2)
@@ -36,5 +67,13 @@ filler3.grid(   row=0, column=3,    padx=50)
 filler4.grid(   row=0, column=4,    padx=25)
 question.grid(  row=0, column=5,                            columnspan=7, rowspan=2)
 filler5.grid(   row=0, column=12,   padx=25)
+
+e.grid(         row=4, column=5)
+m.grid(         row=4, column=6)
+p.grid(         row=4, column=7)
+a.grid(         row=4, column=8)
+t.grid(         row=4, column=9)
+h.grid(         row=4, column=10)
+y.grid(         row=4, column=11)
 
 root.mainloop()

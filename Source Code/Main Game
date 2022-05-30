@@ -1,3 +1,4 @@
+from ctypes import resize
 from random import *
 from tkinter import *
 
@@ -9,10 +10,17 @@ root.geometry('1300x690')
 def click(letter):
     current = e1.get()
     e1.delete(0, END)
-    e1.insert(0, (current + letter))
+    e1.insert(0, (current + letter)) 
 
 def caps(event):
     v.set(v.get().upper())
+
+def submitValues():
+    entered = v.get()
+    if entered == "EMPATHY":
+        return True
+    else:
+        return False
 
 # Just fillers
 filler1 = Label(root, text=" ")
@@ -33,10 +41,16 @@ toLevels = Button(      root, text="To levels",                                 
 howToPlay = Button(     root, text="How to play",                                       font=("", 18),              width=15)
 question = Label(       root, text="An ability to understand another person's feeling", font=("", 25))
 
+# Input
 v = StringVar()
 e1 = Entry(root, width=30, borderwidth=5, font=("", 25), justify=CENTER, textvariable=v)
 e1.bind("<KeyRelease>", caps)
 
+# Button
+submitted = Button(root, text="Submit", font=("", 13))
+result = submitted.bind("<Return>", submitValues)
+
+# Buttons
 e = Button(root, text="E", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click("E"))
 m = Button(root, text="M", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click("M"))
 p = Button(root, text="P", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click("P"))
@@ -52,22 +66,28 @@ filler2.grid(   row=0, column=1,                            columnspan=2)
 level.grid(     row=1, column=1,                            columnspan=2)
 hintButton.grid(row=2, column=1)
 reshuffle.grid( row=2, column=2)
-toLevels.grid(  row=3, column=1,                pady=25,    columnspan=2)
-howToPlay.grid( row=4, column=1,                            columnspan=2)
+toLevels.grid(  row=4, column=1,                pady=25,    columnspan=2)
+howToPlay.grid( row=5, column=1,                            columnspan=2)
 filler3.grid(   row=0, column=3,    padx=50)
 filler4.grid(   row=0, column=4,    padx=25)
 question.grid(  row=0, column=5,                            columnspan=7, rowspan=2)
 filler5.grid(   row=0, column=12,   padx=25)
-
-e1.grid(         row=2, column=5, columnspan=7)
+e1.grid(        row=2, column=5,                            columnspan=7)
+submitted.grid( row=3, column=10,                           columnspan=2)
 
 randomNumbers = sample(range(5,12), 7)
-e.grid(         row=4, column=randomNumbers[0])
-m.grid(         row=4, column=randomNumbers[1])
-p.grid(         row=4, column=randomNumbers[2])
-a.grid(         row=4, column=randomNumbers[3])
-t.grid(         row=4, column=randomNumbers[4])
-h.grid(         row=4, column=randomNumbers[5])
-y.grid(         row=4, column=randomNumbers[6])
+e.grid(         row=5 ,column=randomNumbers[0])
+m.grid(         row=5 ,column=randomNumbers[1])
+p.grid(         row=5 ,column=randomNumbers[2])
+a.grid(         row=5 ,column=randomNumbers[3])
+t.grid(         row=5 ,column=randomNumbers[4])
+h.grid(         row=5 ,column=randomNumbers[5])
+y.grid(         row=5 ,column=randomNumbers[6])
+
+if result == True:
+    print("Congrats")
+else:
+    print("Please try again")
+
 
 root.mainloop()

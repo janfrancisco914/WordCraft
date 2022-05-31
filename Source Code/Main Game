@@ -12,10 +12,10 @@ def click(letter):
     e1.insert(0, (current + letter)) 
 
 def caps(event):
-    v.set(v.get().upper())
+    enteredText.set(enteredText.get().upper())
 
 def submitValues():
-    entered = v.get()
+    entered = enteredText.get()
     if entered == "EMPATHY":
         print("Congrats")
     else:
@@ -41,13 +41,13 @@ howToPlay = Button(     root, text="How to play",                               
 question = Label(       root, text="An ability to understand another person's feeling", font=("", 25))
 
 # Input
-v = StringVar()
-e1 = Entry(root, width=30, borderwidth=5, font=("", 25), justify=CENTER, textvariable=v)
+enteredText = StringVar()
+e1 = Entry(root, width=30, borderwidth=5, font=("", 25), justify=CENTER, textvariable=enteredText)
 e1.bind("<KeyRelease>", caps)
 
 # Button
 submitted = Button(root, text="Submit", font=("", 13), command=submitValues)
-result = submitted.bind("<Return>", submitValues)
+submitted.bind("<Return>", submitValues)
 
 # Buttons
 e = Button(root, text="E", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click("E"))

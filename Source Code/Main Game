@@ -1,4 +1,3 @@
-from ctypes import resize
 from random import *
 from tkinter import *
 
@@ -18,13 +17,13 @@ def caps(event):
 def submitValues():
     entered = v.get()
     if entered == "EMPATHY":
-        return True
+        print("Congrats")
     else:
-        return False
+        print("Please try again")
 
 # Just fillers
-filler1 = Label(root, text=" ")
-filler2 = Label(root, text=" ", height=4)
+filler1 = Label(root, text=" ", height=4)
+filler2 = Label(root, text=" ")
 filler3 = Label(root, text=" ")
 filler4 = Label(root, text=" ")
 filler5 = Label(root, text=" ")
@@ -47,7 +46,7 @@ e1 = Entry(root, width=30, borderwidth=5, font=("", 25), justify=CENTER, textvar
 e1.bind("<KeyRelease>", caps)
 
 # Button
-submitted = Button(root, text="Submit", font=("", 13))
+submitted = Button(root, text="Submit", font=("", 13), command=submitValues)
 result = submitted.bind("<Return>", submitValues)
 
 # Buttons
@@ -83,11 +82,6 @@ a.grid(         row=5 ,column=randomNumbers[3])
 t.grid(         row=5 ,column=randomNumbers[4])
 h.grid(         row=5 ,column=randomNumbers[5])
 y.grid(         row=5 ,column=randomNumbers[6])
-
-if result == True:
-    print("Congrats")
-else:
-    print("Please try again")
 
 
 root.mainloop()

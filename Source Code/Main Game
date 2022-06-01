@@ -3,7 +3,7 @@ from tkinter import *
 
 root = Tk()
 root.title('WordCraft')
-root.geometry('1300x690')
+root.attributes('-fullscreen', True)
 
 # Functions
 def click(letter):
@@ -21,9 +21,22 @@ def limitSizeDay(*args):
 def submitValues():
     entered = enteredText.get()
     if entered == "EMPATHY":
-        print("Congrats")
+        global pop
+        pop = Tk()
+        pop.attributes('-fullscreen', True)
+        pop.title(" ")
+        pop.eval('tk::PlaceWindow . center')
+        greet = Label(pop, text="CONGRATULATIONS", font=("", 40))
+        greet.pack(pady=40)
     else:
-        print("Please try again")
+        pop = Tk()
+        pop.title(" ")
+        pop.attributes('-fullscreen', True)
+        pop.after(3000, pop.destroy)
+        message = Label(pop, text="Please try again", font=("", 50))
+        message1 = Label(pop, text="You will be back in a few seconds")
+        message.place(relx = 0.5, rely = 0.5, anchor = CENTER)
+        message1.place(relx=0.5, rely = 0.6, anchor= CENTER)
 
 # Just fillers
 filler1 = Label(root, text=" ", height=4)

@@ -10,10 +10,13 @@ def click(letter):
     current = e1.get()
     e1.delete(0, END)
     e1.insert(0, (current + letter))
-    print(letter)
 
 def caps(event):
     enteredText.set(enteredText.get().upper())
+
+def limitSizeDay(*args):
+    value = enteredText.get()
+    if len(value) > 7: enteredText.set(value[:7])
 
 def submitValues():
     entered = enteredText.get()
@@ -43,21 +46,22 @@ question = Label(       root, text="An ability to understand another person's fe
 
 # Input
 enteredText = StringVar()
+enteredText.trace('w', limitSizeDay)
 e1 = Entry(root, width=30, borderwidth=5, font=("", 25), justify=CENTER, textvariable=enteredText)
 e1.bind("<KeyRelease>", caps)
 
 # Button
-submitted = Button(root, text="Submit", font=("", 13), command=submitValues)
-submitted.bind("<Return>", submitValues)
+root.bind("<Return>", lambda event: submitValues())
 
 # Buttons
-options = ["E", "M", "P", "A", "T", "H", "Y"]
-index = 0
 randomNumbers = sample(range(5,12), 7)
-for letter in options:
-    word = Button(root, text=options[index], font=("", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click(options[index]))
-    word.grid(row=5, column= randomNumbers[index])
-    index += 1
+e = Button(root, text="E", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click("E"))
+m = Button(root, text="M", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click("M"))
+p = Button(root, text="P", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click("P"))
+a = Button(root, text="A", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click("A"))
+t = Button(root, text="T", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click("T"))
+h = Button(root, text="H", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click("H"))
+y = Button(root, text="Y", font=("Time", 15), fg="#F3F3F3", bg="#5b5b5b", height=2, width=5, command=lambda: click("Y"))
 
 #========================== Screen location ==========================#
 
@@ -73,6 +77,13 @@ filler4.grid(   row=0, column=4,    padx=25)
 question.grid(  row=0, column=5,                            columnspan=7, rowspan=2)
 filler5.grid(   row=0, column=12,   padx=25)
 e1.grid(        row=2, column=5,                            columnspan=7)
-submitted.grid( row=3, column=10,                           columnspan=2)
+
+e.grid(         row=5 ,column=randomNumbers[0])
+m.grid(         row=5 ,column=randomNumbers[1])
+p.grid(         row=5 ,column=randomNumbers[2])
+a.grid(         row=5 ,column=randomNumbers[3])
+t.grid(         row=5 ,column=randomNumbers[4])
+h.grid(         row=5 ,column=randomNumbers[5])
+y.grid(         row=5 ,column=randomNumbers[6])
 
 root.mainloop()

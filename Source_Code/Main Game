@@ -1,4 +1,5 @@
 from random import *
+from textwrap import fill
 from tkinter import *
 import os
 
@@ -36,10 +37,10 @@ def submitValues():
         pop['bg'] = '#ebf8ff'
         pop.title(" ")
         greet = Label(pop, text="CONGRATULATIONS!!!", font=("", 40), width=44, bg="#ebf8ff")
-        greet.grid(row=1, column=1, columnspan=2, pady=120)
-        Label(pop, text="You've completed the level!", font=("", 18), bg="#ebf8ff").grid(row=2, column=0, columnspan=3, rowspan=2, pady=70)
-        Button(pop, text="To Hidden Quote", font=("", 17), bg="#38b6ff", fg="white" ,width=18, height=2, command=nextLevel).grid(row=4,column=1)
-        Button(pop, text="Next Level", font=("", 17), bg="#38b6ff", fg="white" ,width=18, height=2, command=toQuotes).grid(row=4, column=2)
+        greet.grid(row=1, column=1, columnspan=2, pady=100)
+        Label(pop, text="You've completed the level!", font=("", 18), bg="#ebf8ff").grid(row=2, column=0, columnspan=3, rowspan=2, pady=90)
+        Button(pop, text="To Hidden Quote", font=("", 17), bg="#38b6ff", fg="white" ,width=18, height=2, command=nextLevel).grid(row=4,column=1, pady=20)
+        Button(pop, text="Next Level", font=("", 17), bg="#38b6ff", fg="white" ,width=18, height=2, command=toQuotes).grid(row=4, column=2, pady=20)
 
     else:
         pop = Tk()
